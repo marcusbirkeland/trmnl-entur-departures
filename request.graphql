@@ -1,37 +1,31 @@
 # https://api.entur.io/journey-planner/v3/graphql
-## GraphQL query to get estimated departures from a specific stop place
+## GraphQL query to get estimated departures from a specific stop (quay)
 
 {
-  stopPlace(id: "NSR:StopPlace:43577") {
+  quay(id: "NSR:Quay:74792") {
     id
     name
-    estimatedCalls(timeRange: 72100, numberOfDepartures: 18) {     
+    estimatedCalls(timeRange: 72100, numberOfDepartures: 16,  includeCancelledTrips: true) {     
       realtime
-      expectedDepartureTime
+      
+      aimedArrivalTime
       aimedDepartureTime
+      expectedArrivalTime
+      expectedDepartureTime
       date
       destinationDisplay {
         frontText
       }
+      quay {
+        id
+      }
       serviceJourney {
-        line {
-          name
-          operator {
-            name
-            phone
-          }
-          transportMode
-          publicCode
-        }
         directionType
         journeyPattern {
           line {
-            name
+            id
             transportMode
             publicCode
-            authority {
-              name
-            }
           }
         }
       }

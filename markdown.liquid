@@ -4,6 +4,7 @@
       display: block;
       column-count: 2;
       column-gap: 20px;
+      font-size: 1.2em;
     }
 
     .small {
@@ -29,25 +30,32 @@
     }
 
     .trmnl .transport-icon {
-      width: 0.9em;
-      height: 0.9em;
+      width: 1.1em;
+      height: 1.1em;
       display: inline-block;
       flex-shrink: 0;
+      vertical-align: middle;
     }
+
+    .index {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
   </style>
 
   <div class="layout">
     <div class="columns">
       <div class="column" data-list-limit="true" data-list-max-height="1100" data-list-hidden-count="true">
 
-        {% for call in data.stopPlace.estimatedCalls %}
+        {% for quay in data.quay.estimatedCalls %}
         <div class="item">
-          <div class="meta small">
-            <span class="index">{{ call.serviceJourney.line.publicCode }}</span>
+          <div class="meta">
+            <span class="index">{{ quay.serviceJourney.journeyPattern.line.publicCode }}</span>
           </div>
           <div class="content">
             <div>
-              {% if call.serviceJourney.line.transportMode == 'bus' %}
+              {% if quay.serviceJourney.journeyPattern.line.transportMode == 'bus' %}
               <svg class="transport-icon" role="presentation" xml:space="preserve" x="0" y="0" viewBox="0 0 16 16"
                 width="1em" height="1em">
                 <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd">
@@ -59,12 +67,12 @@
                 </g>
               </svg>
               {% endif %}
-              <span class="title title--small">{{ call.destinationDisplay.frontText }}</span>
+              <span class="title title--small">{{ quay.destinationDisplay.frontText }}</span>
             </div>
 
             <div class="flex gap--small">
-              {% assign aimed = call.aimedDepartureTime | date: "%H:%M" %}
-              {% assign expected = call.expectedDepartureTime | date: "%H:%M" %}
+              {% assign aimed = quay.aimedDepartureTime | date: "%H:%M" %}
+              {% assign expected = quay.expectedDepartureTime | date: "%H:%M" %}
 
               {% if aimed != expected %}
               <span class="label label--small time--delayed">{{ aimed }}</span>
@@ -82,7 +90,7 @@
   </div>
 
   <div class="title_bar">
-    <span class="title">Avganger fra {{ data.stopPlace.name }}</span>
+    <span class="title">Avganger fra {{ data.quay.name }} (retning sentrum)</span>
     <span class="instance">Sist oppdatert: {{ 'now' | date: '%s' | plus: trmnl.user.utc_offset | date: '%H:%M'
       }}</span>
   </div>
