@@ -5,7 +5,7 @@
   stopPlace(id: "NSR:StopPlace:43577") {
     id
     name
-    estimatedCalls(timeRange: 72100, numberOfDepartures: 20, includeCancelledTrips: true) {     
+    estimatedCalls(timeRange: 72100, numberOfDepartures: 18) {     
       realtime
       expectedDepartureTime
       aimedDepartureTime
