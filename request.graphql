@@ -5,7 +5,7 @@
   quay(id: "NSR:Quay:74792") {
     id
     name
-    estimatedCalls(timeRange: 72100, numberOfDepartures: 16,  includeCancelledTrips: true) {     
+    estimatedCalls(timeRange: 72100, numberOfDepartures: 16,  includeCancelledTrips: false) {     
       realtime
       
       aimedArrivalTime

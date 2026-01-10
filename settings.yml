@@ -1,0 +1,21 @@
+---
+strategy: polling
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
+polling_verb: POST
+polling_url: https://api.entur.io/journey-planner/v3/graphql
+polling_headers: ''
+polling_body: '{"query":"# Avganger\n\n{\n quay(id: \"{{ quayId }}\") {\n id\n name\n estimatedCalls(timeRange: 72100, numberOfDepartures: {{ numDepartures }}, includeCancelledTrips: true) {\n realtime\n aimedArrivalTime\n aimedDepartureTime\n expectedArrivalTime\n expectedDepartureTime\n date\n destinationDisplay {\n frontText\n }\n quay {\n id\n }\n serviceJourney {\n directionType\n journeyPattern {\n line {\n id\n transportMode\n publicCode\n }\n }\n }\n }\n }\n}\n"}'
+custom_fields:
+- keyname: quayId
+  field_type: string
+  placeholder: NSR:Quay:41001
+  name: Quay ID
+- keyname: numDepartures
+  field_type: number
+  placeholder: 16
+  name: Number of departures
+name: Entur Departures
+description: Display departures from a given station (quay) using Entur's API.
+refresh_interval: 60
