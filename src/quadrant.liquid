@@ -1,32 +1,20 @@
-<div class="view view--{{ size }}">
+<div class="view view--quadrant">
   <style>
-
     .trmnl .layout {
-      padding: 20px 0;
-    }
-
-    .trmnl .column {
-      display: block;
-      column-count: 2;
-      column-gap: 20px;
-      font-size: 1.2em;
-    }
-
-    .small {
-      width: 8px;
+      padding: 3px 0;
     }
 
     .trmnl .item {
       width: 100%;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       break-inside: avoid;
     }
 
     .trmnl .item .meta {
-      width: 50px;
+      width: 35px;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 2px;
     }
 
     .trmnl .time--delayed {
@@ -35,8 +23,8 @@
     }
 
     .trmnl .transport-icon {
-      width: 1.1em;
-      height: 1.1em;
+      width: 0.9em;
+      height: 0.9em;
       display: inline-block;
       flex-shrink: 0;
       vertical-align: middle;
@@ -44,14 +32,17 @@
 
     .index {
       font-weight: bold;
-      font-size: 1.2em;
+      font-size: 1em;
     }
 
+    .title--xsmall {
+      font-size: 0.85em;
+    }
   </style>
 
   <div class="layout">
     <div class="columns">
-      <div class="column">
+      <div class="column" >
 
         {% for quay in data.quay.estimatedCalls %}
         <div class="item">
@@ -72,7 +63,7 @@
                 </g>
               </svg>
               {% endif %}
-              <span class="title title--small">{{ quay.destinationDisplay.frontText }}</span>
+              <span class="title title--xsmall">{{ quay.destinationDisplay.frontText }}</span>
             </div>
 
             <div class="flex gap--small">
@@ -80,10 +71,10 @@
               {% assign expected = quay.expectedDepartureTime | date: "%H:%M" %}
 
               {% if aimed != expected %}
-              <span class="label label--small time--delayed">{{ aimed }}</span>
-              <span class="label label--small label--underline">{{ expected }}</span>
+              <span class="label label--xsmall time--delayed">{{ aimed }}</span>
+              <span class="label label--xsmall label--underline">{{ expected }}</span>
               {% else %}
-              <span class="label label--small">{{ aimed }}</span>
+              <span class="label label--xsmall">{{ aimed }}</span>
               {% endif %}
             </div>
           </div>
@@ -94,9 +85,8 @@
     </div>
   </div>
 
-  <div class="title_bar">
-    <span class="title">Avganger fra {{ data.quay.name }} (retning sentrum)</span>
-    <span class="instance">Sist oppdatert: {{ 'now' | date: '%s' | plus: trmnl.user.utc_offset | date: '%H:%M'
-      }}</span>
+  <div class="title_bar title_bar--small">
+    <span class="title">{{ data.quay.name }}</span>
+    <span class="instance">{{ 'now' | date: '%s' | plus: trmnl.user.utc_offset | date: '%H:%M' }}</span>
   </div>
 </div>

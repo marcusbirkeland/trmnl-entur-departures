@@ -1,32 +1,20 @@
-<div class="view view--{{ size }}">
+<div class="view view--half_vertical">
   <style>
-
     .trmnl .layout {
-      padding: 20px 0;
-    }
-
-    .trmnl .column {
-      display: block;
-      column-count: 2;
-      column-gap: 20px;
-      font-size: 1.2em;
-    }
-
-    .small {
-      width: 8px;
+      padding: 5px 0;
     }
 
     .trmnl .item {
       width: 100%;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       break-inside: avoid;
     }
 
     .trmnl .item .meta {
-      width: 50px;
+      width: 40px;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
     }
 
     .trmnl .time--delayed {
@@ -35,8 +23,8 @@
     }
 
     .trmnl .transport-icon {
-      width: 1.1em;
-      height: 1.1em;
+      width: 1em;
+      height: 1em;
       display: inline-block;
       flex-shrink: 0;
       vertical-align: middle;
@@ -44,9 +32,8 @@
 
     .index {
       font-weight: bold;
-      font-size: 1.2em;
+      font-size: 1.1em;
     }
-
   </style>
 
   <div class="layout">
@@ -95,8 +82,7 @@
   </div>
 
   <div class="title_bar">
-    <span class="title">Avganger fra {{ data.quay.name }} (retning sentrum)</span>
-    <span class="instance">Sist oppdatert: {{ 'now' | date: '%s' | plus: trmnl.user.utc_offset | date: '%H:%M'
-      }}</span>
+    <span class="title">{{ data.quay.name }}</span>
+    <span class="instance">{{ 'now' | date: '%s' | plus: trmnl.user.utc_offset | date: '%H:%M' }}</span>
   </div>
 </div>
