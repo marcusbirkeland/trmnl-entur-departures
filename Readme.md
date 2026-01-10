@@ -3,6 +3,8 @@
 Shows departures from any specific stop (quay) for public transport in norway. Uses the free and publicly available
 [Entur GraphQL API](https://api.entur.io/graphql-explorer/journey-planner-v3).
 
+<img width="796" height="473" alt="image" src="https://github.com/user-attachments/assets/a3d97f36-620b-445d-a405-096139f70511" />
+
 ## How to use
 
 1. Adjust parameters in the graphql request to change quay (station).
@@ -21,5 +23,3 @@ Shows departures from any specific stop (quay) for public transport in norway. U
   ```
 
 - Copy the contents of `markdown.liquid`, and paste into the Markup section.
-
-## Demo
