@@ -23,3 +23,5 @@ Shows departures from any specific stop (quay) for public transport in norway. U
 - Copy the contents of `markdown.liquid`, and paste into the Markup section.
 
 ## Demo
+
+<img width="1441" height="862" alt="image" src="https://github.com/user-attachments/assets/3b9bdb3a-9c0c-48b3-94d8-e412eb8f63bb" />
