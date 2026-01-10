@@ -1,0 +1,15 @@
+# TRMNLP configuration for trmnl entur plugin.
+---
+# auto-reload when files change
+watch:
+  - settings.yml
+  - full.liquid
+  - src
+
+# Time zone IANA identifier to inject into trmnl.user
+time_zone: Europe/Oslo
+
+# Custom field values for local testing
+custom_fields_values:
+  quayId: "NSR:Quay:41001"
+  numDepartures: 16
