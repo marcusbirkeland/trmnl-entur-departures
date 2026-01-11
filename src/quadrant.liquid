@@ -1,7 +1,14 @@
 <div class="view view--quadrant">
   <style>
     .trmnl .layout {
-      padding: 3px 0;
+      padding: 3px 8px;
+    }
+
+    .trmnl .column {
+      display: block;
+      column-count: 2;
+      column-gap: 20px;
+      font-size: 1em;
     }
 
     .trmnl .item {
@@ -92,10 +99,10 @@
                 </path>
               </svg>
               {% endif %}
-              <span class="title title--xsmall">{{ quay.destinationDisplay.frontText }}</span>
+              <span class="title title--xsmall" data-clamp="1">{{ quay.destinationDisplay.frontText }}</span>
             </div>
 
-            <div class="flex pt--1 gap--small">
+            <div class=" flex pt--1 gap--small">
               {% assign aimed = quay.aimedDepartureTime | date: "%H:%M" %}
               {% assign expected = quay.expectedDepartureTime | date: "%H:%M" %}
 
