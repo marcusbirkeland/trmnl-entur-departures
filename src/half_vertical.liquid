@@ -38,7 +38,7 @@
 
   <div class="layout">
     <div class="columns">
-      <div class="column">
+      <div class="column" data-overflow="true">
 
         {% for quay in data.quay.estimatedCalls %}
         <div class="item">
@@ -46,7 +46,7 @@
             <span class="index">{{ quay.serviceJourney.journeyPattern.line.publicCode }}</span>
           </div>
           <div class="content">
-            <div>
+            <div class="flex flex--row flex--bottom gap--small">
               {% if quay.serviceJourney.journeyPattern.line.transportMode == 'bus' %}
               <svg class="transport-icon" role="presentation" xml:space="preserve" x="0" y="0" viewBox="0 0 16 16"
                 width="1em" height="1em">
@@ -91,15 +91,15 @@
               <span class="title title--small">{{ quay.destinationDisplay.frontText }}</span>
             </div>
 
-            <div class="flex gap--small">
+            <div class="flex pt--1 gap--small">
               {% assign aimed = quay.aimedDepartureTime | date: "%H:%M" %}
               {% assign expected = quay.expectedDepartureTime | date: "%H:%M" %}
 
               {% if aimed != expected %}
               <span class="label label--small time--delayed">{{ aimed }}</span>
-              <span class="label label--small label--underline">{{ expected }}</span>
+              <span class="label label--small label--inverted label--underline">{{ expected }}</span>
               {% else %}
-              <span class="label label--small">{{ aimed }}</span>
+              <span class="label label--small label--inverted">{{ aimed }}</span>
               {% endif %}
             </div>
           </div>
