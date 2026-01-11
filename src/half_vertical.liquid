@@ -59,6 +59,35 @@
                 </g>
               </svg>
               {% endif %}
+              {% if quay.serviceJourney.journeyPattern.line.transportMode == 'rail' %}
+              <svg class="transport-icon" role="presentation" xml:space="preserve" x="0" y="0" viewBox="0 0 16 16"
+                width="1em" height="1em" color="#000000">
+                <path fill="#000000" fill-rule="evenodd" d="M1 12H14V13H1z" clip-rule="evenodd"></path>
+                <path fill="#000000"
+                  d="M14.75 8.1a.6.6 0 0 0-.091-.11l-.035-.036-.093-.095c-.315-.314-2.34-1.805-3.436-2.528-.358-.236-.76-.331-.999-.331h-3.54l1.295-.89c.1-.076.149-.134.149-.256a.33.33 0 0 0-.142-.276L6.364 2.399H5.4l1.702 1.434-1.7 1.166h.001H1v6h12.612c.196 0 .38-.098.488-.263.49-.755.9-1.41.9-1.902 0-.277-.095-.529-.25-.735m-2.537-.508c-.046.136-.173.172-.317.172h-.666c-.071 0-.185.01-.284-.063l-.95-.671a.332.332 0 0 1 .2-.599h.666c.072 0 .142.024.2.068l1.034.778c.115.086.162.18.117.315">
+                </path>
+              </svg>
+              {% endif %}
+              {% if quay.serviceJourney.journeyPattern.line.transportMode == 'tram' %}
+              <svg class="transport-icon" role="presentation" xml:space="preserve" x="0" y="0" viewBox="0 0 16 16"
+                width="1em" height="1em" color="#000000">
+                <path fill="#000000" fill-rule="evenodd"
+                  d="M14.062 5.272a.35.35 0 0 0-.341-.273H8.566l1.289-.89c.1-.075.149-.133.149-.255a.33.33 0 0 0-.142-.276L8.368 2.399h-.964l1.701 1.434-1.7 1.166H2.28a.35.35 0 0 0-.341.273L1.009 9.38a.45.45 0 0 0 .074.35l.812 1.124a.35.35 0 0 0 .283.145h11.643a.35.35 0 0 0 .284-.145l.812-1.123a.45.45 0 0 0 .074-.351zM3.75 8.182a.35.35 0 0 1-.35.35H2.35a.35.35 0 0 1-.342-.426l.31-1.4a.35.35 0 0 1 .34-.275H3.4a.35.35 0 0 1 .35.35zm3.5 0a.35.35 0 0 1-.35.35H4.799a.35.35 0 0 1-.35-.35V6.78a.35.35 0 0 1 .35-.35h2.1a.35.35 0 0 1 .35.35zm3.51 0a.35.35 0 0 1-.35.35h-2.1a.35.35 0 0 1-.35-.35V6.78a.35.35 0 0 1 .35-.35h2.1a.35.35 0 0 1 .35.35zm3.073.219a.35.35 0 0 1-.272.131H11.81a.35.35 0 0 1-.35-.35V6.781a.35.35 0 0 1 .35-.35h1.441a.35.35 0 0 1 .342.275l.309 1.4a.35.35 0 0 1-.07.295"
+                  clip-rule="evenodd"></path>
+                <path fill="#000000" fill-rule="evenodd" d="M2 11.999H14V12.999H2z" clip-rule="evenodd"></path>
+              </svg>
+              {% endif %}
+              {% if quay.serviceJourney.journeyPattern.line.transportMode == 'metro' %}
+              <svg class="transport-icon" role="presentation" xml:space="preserve" x="0" y="0" viewBox="0 0 16 16"
+                width="1em" height="1em" color="#000000">
+                <path fill="#000000" fill-rule="evenodd"
+                  d="M5.004 5 5.004 6.166 7.416 6.166 7.416 12 8.584 12 8.584 6.166 10.999 6.166 10.999 5z"
+                  clip-rule="evenodd"></path>
+                <path fill="#000000"
+                  d="M8 2c3.308 0 6 2.692 6 6s-2.692 6-6 6c-3.309 0-6-2.692-6-6s2.691-6 6-6m0-1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7">
+                </path>
+              </svg>
+              {% endif %}
               <span class="title title--small">{{ quay.destinationDisplay.frontText }}</span>
             </div>
 
@@ -82,6 +111,7 @@
   </div>
 
   <div class="title_bar">
+    <img class="image" src="https://avatars.githubusercontent.com/u/23213604?s=200&v=4" alt="Trmnl logo" />
     <span class="title">{{ data.quay.name }}</span>
     <span class="instance">{{ 'now' | date: '%s' | plus: trmnl.user.utc_offset | date: '%H:%M' }}</span>
   </div>
