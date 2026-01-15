@@ -37,9 +37,8 @@
       vertical-align: middle;
     }
 
-    .index {
-      font-weight: bold;
-      font-size: 1em;
+    .trmnl .line-number {
+      font-size: 1.2em;
     }
 
     .title--xsmall {
@@ -54,7 +53,7 @@
         {% for quay in data.quay.estimatedCalls %}
         <div class="item">
           <div class="meta">
-            <span class="index">{{ quay.serviceJourney.journeyPattern.line.publicCode }}</span>
+            <span class="line-number">{{ quay.serviceJourney.journeyPattern.line.publicCode }}</span>
           </div>
           <div class="content">
             <div class="flex flex--row flex--bottom gap--small">
